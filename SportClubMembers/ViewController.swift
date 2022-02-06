@@ -49,5 +49,16 @@ extension ViewController: UITableViewDataSource {
     
 
 extension ViewController: UITableViewDelegate {
+    //MARK: - Edit TableView
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let selectedPerson = persons[sourceIndexPath.row]
+        persons.remove(at: sourceIndexPath.row)
+        persons.insert(selectedPerson, at: destinationIndexPath.row)
+    }
     
 }
