@@ -35,8 +35,28 @@ class ViewController: UIViewController {
     //MARK: - Add new members
 
     @IBAction func addButtonTapped(_ sender: Any) {
+        
+        var textField = UITextField()
+        
         let alert = UIAlertController(title: "Add new Member", message: "Please enter Name", preferredStyle: .alert)
         
+        let action = UIAlertAction(title: "Add Member", style: .default) { (action) in
+            if textField.text == "" || textField.text == nil {
+                return
+            } else {
+                self.persons.insert(textField.text!, at: 0)
+                
+                let indexPath = IndexPath(row: 0, section: 0)
+                self.tableView.insertRows(at: [indexPath], with: .left)
+            }
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Name"
+            textField = alertTextField
+        }
+        
+        alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
     
