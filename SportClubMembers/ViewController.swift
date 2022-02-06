@@ -61,4 +61,15 @@ extension ViewController: UITableViewDelegate {
         persons.insert(selectedPerson, at: destinationIndexPath.row)
     }
     
+    //MARK: - Delete Rows
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            persons.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+    }
+    
 }
