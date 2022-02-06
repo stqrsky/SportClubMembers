@@ -31,7 +31,15 @@ class ViewController: UIViewController {
         super.setEditing(!isEditing, animated: true)
         tableView.setEditing(!tableView.isEditing, animated: true)
     }
+    
+    //MARK: - Add new members
 
+    @IBAction func addButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Add new Member", message: "Please enter Name", preferredStyle: .alert)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource {
