@@ -19,6 +19,13 @@ class ViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        navigationItem.rightBarButtonItem = editButtonItem
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(!isEditing, animated: true)
+        tableView.setEditing(!tableView.isEditing, animated: true)
     }
 
 }
