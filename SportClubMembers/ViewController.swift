@@ -20,6 +20,10 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.tableFooterView = UIView()
+        
+        title = "Members"
+        
         navigationItem.rightBarButtonItem = editButtonItem
     }
     
